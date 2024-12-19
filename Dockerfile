@@ -5,14 +5,18 @@ FROM eclipse-temurin:17-jdk as builder
 WORKDIR /app
 
 # Copy the Gradle files
-COPY build.gradle settings.gradle gradlew ./
+COPY build.gradle settings.gradle ./
 COPY gradle ./gradle
+COPY gradlew ./
+
+# Make gradlew executable
+RUN chmod +x ./gradlew
 
 # Copy the source code
 COPY src ./src
 
 # Build the application
-RUN ./gradlew build -x test
+RUN ./gradlew build -x test --no-daemon
 
 # Create the runtime image
 FROM eclipse-temurin:17-jre
