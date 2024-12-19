@@ -1,5 +1,5 @@
-# Use Eclipse Temurin JDK 17 as the base image
-FROM eclipse-temurin:17-jdk as builder
+# Use Eclipse Temurin JDK 21 as the base image
+FROM eclipse-temurin:21-jdk as builder
 
 # Set the working directory
 WORKDIR /app
@@ -16,10 +16,10 @@ RUN chmod +x ./gradlew
 COPY src ./src
 
 # Build the application
-RUN ./gradlew build -x test --no-daemon
+RUN ./gradlew build -x test --no-daemon --info --stacktrace
 
 # Create the runtime image
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
