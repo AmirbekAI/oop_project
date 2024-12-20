@@ -1,8 +1,8 @@
-package com.donation.repository;
+package com.example.examproj;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.donation.model.Donation;
+
 import java.util.List;
 
 @Repository

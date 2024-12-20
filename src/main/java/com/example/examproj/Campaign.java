@@ -1,4 +1,4 @@
-package com.donation.model;
+package com.example.examproj;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "campaigns")
@@ -38,5 +39,6 @@ public class Campaign {
     private BigDecimal targetAmount;
     
     @OneToMany(mappedBy = "campaign")
+    @JsonIgnoreProperties("campaign")
     private List<Donation> donations = new ArrayList<>();
 } 

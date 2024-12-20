@@ -1,4 +1,4 @@
-package com.donation.model;
+package com.example.examproj;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "donors")
@@ -29,5 +30,6 @@ public class Donor {
     private String phoneNumber;
     
     @OneToMany(mappedBy = "donor")
+    @JsonIgnoreProperties("donor")
     private List<Donation> donations = new ArrayList<>();
 } 

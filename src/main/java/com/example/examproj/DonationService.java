@@ -1,7 +1,5 @@
-package com.donation.service;
+package com.example.examproj;
 
-import com.donation.model.Donation;
-import com.donation.repository.DonationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
